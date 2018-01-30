@@ -1,7 +1,6 @@
 function Airport() {
   hangarArray = []
-  // var weather = [true, false]
-  // tstormy() = weather[Math.floor(Math.random() * weather.length)];
+  const capacity = 42;
 }
 
   Airport.prototype.hangar = function(){
@@ -12,6 +11,8 @@ function Airport() {
     weather = this.stormy();
     if (weather === true) {
       throw new Error('The plane cannot land due to the weather');
+    } else if (hangarArray.length >= 42) {
+      throw new Error('The plane cannot land due to the airport be full');
     } else {
       this.addToHangar(plane);
     };
@@ -35,12 +36,3 @@ function Airport() {
     var randWeather = weather[Math.floor(Math.random() * weather.length)];
     return randWeather
   };
-
-  // Airport.prototype.weatherReport = function() {
-  //   var report = this.stormy();
-  //   return report;
-  // }
-
-  // Airport.prototype.weather = function() {
-  //   return this.stormy
-  // }

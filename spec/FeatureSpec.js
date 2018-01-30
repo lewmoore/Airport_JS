@@ -17,7 +17,7 @@ describe('Feature Tests', function() {
     expect(airport.hangar()).toEqual([]);
   })
 
-  it('The plane cannot take off due the weather', function(){
+  it('wont take off plane when stormy', function(){
     spyOn(airport, 'stormy').and.returnValue(true);
     expect(function() {airport.takeOff(plane);}).toThrow(new Error('The plane cannot take off due to the weather'));
   });
@@ -27,14 +27,11 @@ describe('Feature Tests', function() {
     expect(function() {airport.land(plane);}).toThrow(new Error('The plane cannot land due to the weather'));
   })
 
-  // it('prevents take off when weather is stormy ', function(){
-  //   spyOn(airport, 'stormy').and.returnValue(false);
-  //   expect(airport.stormy).toBe(false);
-  // });
-  //
-  //
-  // it('prevents take off when weather is stormy ', function(){
-  //   spyOn(airport, 'stormy').and.returnValue(true);
-  //   expect(airport.takeOff(plane)).toThrowError("The plane can't take off due the weather");
-  // });
+  it('wont land plane when the hangar is full', function() {
+    spyOn(airport, 'stormy').and.returnValue(false);
+    hangarArray.length = 42;
+    expect(function() {airport.land(plane);}).toThrow(new Error('The plane cannot land due to the airport be full'));
+
+  });
+
 });
