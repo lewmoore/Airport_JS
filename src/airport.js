@@ -1,6 +1,6 @@
-function Airport() {
+function Airport(capacity = 42) {
   hangarArray = []
-  const capacity = 42;
+   capacity = capacity;
 }
 
   Airport.prototype.hangar = function(){
