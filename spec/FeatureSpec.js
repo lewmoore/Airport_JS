@@ -9,4 +9,9 @@ describe('Feature Tests', function() {
     airport.land(plane)
     expect(airport.hangar()).toContain(plane);
   });
+
+  it('Airport can instruct plane to take off', function() {
+    airport.takeOff(plane)
+    expect(airport.hangar()).toEqual([])
+  })
 });
