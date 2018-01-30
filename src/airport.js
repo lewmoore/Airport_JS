@@ -1,7 +1,16 @@
 function Airport() {
-
 }
+
+function Plane() {
+  
+}
+
+var planesArray = []
 
 Airport.prototype.land = function(plane) {
-  return 'Plane has landed!';
+  planesArray.push(plane)
 }
+
+// Airport.prototype.planes = function() {
+//
+// }
